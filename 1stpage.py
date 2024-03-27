@@ -27,6 +27,7 @@ def login():
         #show 2nd page
         create_widgets()      
 
+
 # labels mai user interaction include nahi hota widgets mai hota hai        
 
 label1 = Label(
@@ -143,6 +144,37 @@ def create_reset_button():
             fg="black"
             )
     reset_button.pack(pady=10)
+
+def create_restart_button():
+    global frame, restart_button
+    restart_button = Button(
+        frame, 
+        text="Restart", 
+        font=("Arial", 20), 
+        command=restart,
+        background="white",
+        fg="black"
+    )
+    restart_button.pack(pady=10)
+# making congrates page
+def congrates_page():
+    global label_congrates, frame, restart_button
+    button_frame.destroy()
+    topic_Label.destroy()
+    player_Label.destroy()
+    reset_button.destroy()
+    create_restart_button()
+    for button in [b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27]:
+        button.destroy()
+    label_congrates = Label(
+            root, 
+            text="Congratulations! " + player + " wins", 
+            font=("Arial", 20), 
+            background="white", 
+            fg="black"
+            )
+    label_congrates.pack(pady=10)
+
 clicked=True
 count=0
 
@@ -165,8 +197,16 @@ def reset():
             fg="black"
             )
 
-    disable_all_buttons()
     
+def restart():
+    global clicked, count, player, players, frame, restart_button,label_congrates
+    clicked = True
+    count = 0
+    player = random.choice(players)
+    frame.destroy()
+    label_congrates.destroy()
+    restart_button.destroy()
+    create_widgets()
 
 def disable_all_buttons():
     global b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27
@@ -229,7 +269,7 @@ def checkifwon():
         b2.config(bg="#82D5A5")
         b3.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b4['text']==players[0][0] and b5['text']==players[0][0] and b6['text']==players[0][0]:
@@ -237,7 +277,7 @@ def checkifwon():
         b5.config(bg="#82D5A5")
         b6.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b7['text']==players[0][0] and b8['text']==players[0][0] and b9['text']==players[0][0]:
@@ -245,7 +285,7 @@ def checkifwon():
         b8.config(bg="#82D5A5")
         b9.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b10['text']==players[0][0] and b11['text']==players[0][0] and b12['text']==players[0][0]:
@@ -253,7 +293,7 @@ def checkifwon():
         b11.config(bg="#82D5A5")
         b12.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b13['text']==players[0][0] and b14['text']==players[0][0] and b15['text']==players[0][0]:
@@ -261,7 +301,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b15.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b16['text']==players[0][0] and b17['text']==players[0][0] and b18['text']==players[0][0]:
@@ -269,7 +309,7 @@ def checkifwon():
         b17.config(bg="#82D5A5")
         b18.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b19['text']==players[0][0] and b20['text']==players[0][0] and b21['text']==players[0][0]:
@@ -277,7 +317,7 @@ def checkifwon():
         b20.config(bg="#82D5A5")
         b21.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b22['text']==players[0][0] and b23['text']==players[0][0] and b24['text']==players[0][0]:
@@ -285,7 +325,7 @@ def checkifwon():
         b23.config(bg="#82D5A5")
         b24.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b25['text']==players[0][0] and b26['text']==players[0][0] and b27['text']==players[0][0]:
@@ -293,7 +333,7 @@ def checkifwon():
         b26.config(bg="#82D5A5")
         b27.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b1['text']==players[0][0] and b4['text']==players[0][0] and b7['text']==players[0][0]:
@@ -301,7 +341,7 @@ def checkifwon():
         b4.config(bg="#82D5A5")
         b7.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
     
     elif b2['text']==players[0][0] and b5['text']==players[0][0] and b8['text']==players[0][0]:
@@ -309,7 +349,7 @@ def checkifwon():
         b5.config(bg="#82D5A5")
         b8.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b3['text']==players[0][0] and b6['text']==players[0][0] and b9['text']==players[0][0]:
@@ -317,7 +357,7 @@ def checkifwon():
         b6.config(bg="#82D5A5")
         b9.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b1['text']==players[0][0] and b5['text']==players[0][0] and b9['text']==players[0][0]:
@@ -325,7 +365,7 @@ def checkifwon():
         b5.config(bg="#82D5A5")
         b9.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b3['text']==players[0][0] and b5['text']==players[0][0] and b7['text']==players[0][0]:
@@ -333,7 +373,7 @@ def checkifwon():
         b5.config(bg="#82D5A5")
         b7.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b1['text']==players[0][0] and b10['text']==players[0][0] and b19['text']==players[0][0]:
@@ -341,7 +381,7 @@ def checkifwon():
         b10.config(bg="#82D5A5")
         b19.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b2['text']==players[0][0] and b11['text']==players[0][0] and b20['text']==players[0][0]:
@@ -349,7 +389,7 @@ def checkifwon():
         b11.config(bg="#82D5A5")
         b20.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b3['text']==players[0][0] and b12['text']==players[0][0] and b21['text']==players[0][0]:
@@ -357,7 +397,7 @@ def checkifwon():
         b12.config(bg="#82D5A5")
         b21.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b4['text']==players[0][0] and b13['text']==players[0][0] and b22['text']==players[0][0]:
@@ -365,7 +405,7 @@ def checkifwon():
         b13.config(bg="#82D5A5")
         b22.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b5['text']==players[0][0] and b14['text']==players[0][0] and b23['text']==players[0][0]:
@@ -373,7 +413,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b23.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b6['text']==players[0][0] and b15['text']==players[0][0] and b24['text']==players[0][0]:
@@ -381,7 +421,7 @@ def checkifwon():
         b15.config(bg="#82D5A5")
         b24.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b7['text']==players[0][0] and b16['text']==players[0][0] and b25['text']==players[0][0]:
@@ -389,7 +429,7 @@ def checkifwon():
         b16.config(bg="#82D5A5")
         b25.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b8['text']==players[0][0] and b17['text']==players[0][0] and b26['text']==players[0][0]:
@@ -397,7 +437,7 @@ def checkifwon():
         b17.config(bg="#82D5A5")
         b26.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b9['text']==players[0][0] and b18['text']==players[0][0] and b27['text']==players[0][0]:
@@ -405,7 +445,7 @@ def checkifwon():
         b18.config(bg="#82D5A5")
         b27.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     
@@ -422,7 +462,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b25.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     #
@@ -432,7 +472,7 @@ def checkifwon():
         b13.config(bg="#82D5A5")
         b16.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b11['text']==players[0][0] and b14['text']==players[0][0] and b17['text']==players[0][0]:
@@ -440,7 +480,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b17.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b12['text']==players[0][0] and b15['text']==players[0][0] and b18['text']==players[0][0]:
@@ -448,7 +488,7 @@ def checkifwon():
         b15.config(bg="#82D5A5")
         b18.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b19['text']==players[0][0] and b22['text']==players[0][0] and b25['text']==players[0][0]:
@@ -456,7 +496,7 @@ def checkifwon():
         b22.config(bg="#82D5A5")
         b25.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b20['text']==players[0][0] and b23['text']==players[0][0] and b26['text']==players[0][0]:
@@ -464,7 +504,7 @@ def checkifwon():
         b23.config(bg="#82D5A5")
         b26.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b21['text']==players[0][0] and b24['text']==players[0][0] and b27['text']==players[0][0]:
@@ -472,7 +512,7 @@ def checkifwon():
         b24.config(bg="#82D5A5")
         b27.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
     
     elif b10['text']==players[0][0] and b14['text']==players[0][0] and b18['text']==players[0][0]:
@@ -480,7 +520,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b18.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b12['text']==players[0][0] and b14['text']==players[0][0] and b16['text']==players[0][0]:
@@ -488,7 +528,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b16.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b19['text']==players[0][0] and b23['text']==players[0][0] and b27['text']==players[0][0]:
@@ -496,7 +536,7 @@ def checkifwon():
         b23.config(bg="#82D5A5")
         b27.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b21['text']==players[0][0] and b23['text']==players[0][0] and b25['text']==players[0][0]:
@@ -504,7 +544,7 @@ def checkifwon():
         b23.config(bg="#82D5A5")
         b25.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[0]} wins")
+        congrates_page()
         disable_all_buttons()
 
 
@@ -515,7 +555,7 @@ def checkifwon():
         b2.config(bg="#82D5A5")
         b3.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b4['text']==players[1][0] and b5['text']==players[1][0] and b6['text']==players[1][0]:
@@ -523,7 +563,7 @@ def checkifwon():
         b5.config(bg="#82D5A5")
         b6.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b7['text']==players[1][0] and b8['text']==players[1][0] and b9['text']==players[1][0]:
@@ -531,7 +571,7 @@ def checkifwon():
         b8.config(bg="#82D5A5")
         b9.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b10['text']==players[1][0] and b11['text']==players[1][0] and b12['text']==players[1][0]:
@@ -539,7 +579,7 @@ def checkifwon():
         b11.config(bg="#82D5A5")
         b12.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b13['text']==players[1][0] and b14['text']==players[1][0] and b15['text']==players[1][0]:
@@ -547,7 +587,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b15.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b16["text"]==players[1][0] and b17["text"]==players[1][0] and b18["text"]==players[1][0]:
@@ -555,7 +595,7 @@ def checkifwon():
         b17.config(bg="#82D5A5")
         b18.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b19["text"]==players[1][0] and b20["text"]==players[1][0] and b21["text"]==players[1][0]:
@@ -563,7 +603,7 @@ def checkifwon():
         b20.config(bg="#82D5A5")
         b21.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b22["text"]==players[1][0] and b23["text"]==players[1][0] and b24["text"]==players[1][0]:
@@ -571,7 +611,7 @@ def checkifwon():
         b23.config(bg="#82D5A5")
         b24.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b25["text"]==players[1][0] and b26["text"]==players[1][0] and b27["text"]==players[1][0]:
@@ -579,7 +619,7 @@ def checkifwon():
         b26.config(bg="#82D5A5")
         b27.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
         
     elif b1['text']==players[1][0] and b4['text']==players[1][0] and b7['text']==players[1][0]:
@@ -587,7 +627,7 @@ def checkifwon():
         b4.config(bg="#82D5A5")
         b7.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b2['text']==players[1][0] and b5['text']==players[1][0] and b8['text']==players[1][0]:
@@ -595,7 +635,7 @@ def checkifwon():
         b5.config(bg="#82D5A5")
         b8.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b3['text']==players[1][0] and b6['text']==players[1][0] and b9['text']==players[1][0]:
@@ -603,7 +643,7 @@ def checkifwon():
         b6.config(bg="#82D5A5")
         b9.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b10['text']==players[1][0] and b13['text']==players[1][0] and b16['text']==players[1][0]:
@@ -611,7 +651,7 @@ def checkifwon():
         b13.config(bg="#82D5A5")
         b16.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b11['text']==players[1][0] and b14['text']==players[1][0] and b17['text']==players[1][0]:
@@ -619,7 +659,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b17.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b12['text']==players[1][0] and b15['text']==players[1][0] and b18['text']==players[1][0]:
@@ -627,7 +667,7 @@ def checkifwon():
         b15.config(bg="#82D5A5")
         b18.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b19['text']==players[1][0] and b22['text']==players[1][0] and b25['text']==players[1][0]:
@@ -635,7 +675,7 @@ def checkifwon():
         b22.config(bg="#82D5A5")
         b25.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b20['text']==players[1][0] and b23['text']==players[1][0] and b26['text']==players[1][0]:
@@ -643,7 +683,7 @@ def checkifwon():
         b23.config(bg="#82D5A5")
         b26.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b21['text']==players[1][0] and b24['text']==players[1][0] and b27['text']==players[1][0]:
@@ -651,7 +691,7 @@ def checkifwon():
         b24.config(bg="#82D5A5")
         b27.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b10['text']==players[1][0] and b14['text']==players[1][0] and b18['text']==players[1][0]:
@@ -659,7 +699,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b18.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b12['text']==players[1][0] and b14['text']==players[1][0] and b16['text']==players[1][0]:
@@ -667,7 +707,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b16.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b19['text']==players[1][0] and b23['text']==players[1][0] and b27['text']==players[1][0]:
@@ -675,7 +715,7 @@ def checkifwon():
         b23.config(bg="#82D5A5")
         b27.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b21['text']==players[1][0] and b23['text']==players[1][0] and b25['text']==players[1][0]:
@@ -683,7 +723,7 @@ def checkifwon():
         b23.config(bg="#82D5A5")
         b25.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
 
@@ -692,7 +732,7 @@ def checkifwon():
         b5.config(bg="#82D5A5")
         b9.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b3['text']==players[1][0] and b5['text']==players[1][0] and b7['text']==players[1][0]:
@@ -700,7 +740,7 @@ def checkifwon():
         b5.config(bg="#82D5A5")
         b7.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b1['text']==players[1][0] and b10['text']==players[1][0] and b19['text']==players[1][0]:
@@ -708,7 +748,7 @@ def checkifwon():
         b10.config(bg="#82D5A5")
         b19.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b2['text']==players[1][0] and b11['text']==players[1][0] and b20['text']==players[1][0]:
@@ -716,7 +756,7 @@ def checkifwon():
         b11.config(bg="#82D5A5")
         b20.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b3['text']==players[1][0] and b12['text']==players[1][0] and b21['text']==players[1][0]:
@@ -724,7 +764,7 @@ def checkifwon():
         b12.config(bg="#82D5A5")
         b21.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b4['text']==players[1][0] and b13['text']==players[1][0] and b22['text']==players[1][0]:
@@ -732,7 +772,7 @@ def checkifwon():
         b13.config(bg="#82D5A5")
         b22.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b5['text']==players[1][0] and b14['text']==players[1][0] and b23['text']==players[1][0]:
@@ -740,7 +780,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b23.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b6['text']==players[1][0] and b15['text']==players[1][0] and b24['text']==players[1][0]:
@@ -748,7 +788,7 @@ def checkifwon():
         b15.config(bg="#82D5A5")
         b24.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b7['text']==players[1][0] and b16['text']==players[1][0] and b25['text']==players[1][0]:
@@ -756,7 +796,7 @@ def checkifwon():
         b16.config(bg="#82D5A5")
         b25.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b8['text']==players[1][0] and b17['text']==players[1][0] and b26['text']==players[1][0]:
@@ -764,7 +804,7 @@ def checkifwon():
         b17.config(bg="#82D5A5")
         b26.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b9['text']==players[1][0] and b18['text']==players[1][0] and b27['text']==players[1][0]:
@@ -772,7 +812,7 @@ def checkifwon():
         b18.config(bg="#82D5A5")
         b27.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b1['text']==players[1][0] and b14['text']==players[1][0] and b27['text']==players[1][0]:
@@ -780,7 +820,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b27.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
     elif b3['text']==players[1][0] and b14['text']==players[1][0] and b25['text']==players[1][0]:
@@ -788,7 +828,7 @@ def checkifwon():
         b14.config(bg="#82D5A5")
         b25.config(bg="#82D5A5")
         winner=True
-        messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
+        congrates_page()
         disable_all_buttons()
 
 
