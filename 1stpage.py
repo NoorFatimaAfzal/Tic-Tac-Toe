@@ -12,6 +12,8 @@ def login():
     player2 = entry2.get()
     if player1 == "" and player2 == "":
         messagebox.showerror("names", "Please enter player names!")
+    elif player1[0].lower() == player2[0].lower():
+        messagebox.showerror("names", "Names cannot start with the same letter!")
     else:
         messagebox.showinfo("Login", "Login successful")
         player = player1
@@ -683,7 +685,7 @@ def checkifwon():
         winner=True
         messagebox.showinfo(f"Tic Tac Toe", f"Congratulations! {players[1]} wins")
         disable_all_buttons()
-        
+
 
     elif b1['text']==players[1][0] and b5['text']==players[1][0] and b9['text']==players[1][0]:
         b1.config(bg="#82D5A5")
