@@ -174,6 +174,14 @@ def congrates_page():
             fg="black"
             )
     label_congrates.pack(pady=10)
+    label_end = Label(
+        root,
+        text="Game Over",
+        font=("Arial", 20),
+        background="white",
+        fg="black"
+    )
+    label_end.pack(pady=10)
 
 clicked=True
 count=0
@@ -830,9 +838,6 @@ def checkifwon():
         winner=True
         congrates_page()
         disable_all_buttons()
-
-
-    
 
     if count==27 and winner==False:
         messagebox.showinfo("Tic Tac Toe", "It's a tie!\nNo one wins")
