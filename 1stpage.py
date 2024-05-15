@@ -27,7 +27,6 @@ def login():
         #show 2nd page
         create_widgets()      
 
-
 # labels mai user interaction include nahi hota widgets mai hota hai        
 
 label1 = Label(
@@ -92,7 +91,6 @@ def create_widgets():
     create_reset_button()
     create_buttons()
 
-
 # making things used in 2nd page
     
 def create_label_frame():
@@ -156,6 +154,7 @@ def create_restart_button():
         fg="black"
     )
     restart_button.pack(pady=10)
+
 # making congrates page
 def congrates_page():
     global label_congrates, frame, restart_button
@@ -1136,7 +1135,6 @@ def create_buttons():
     b23.grid(row=7, column=9, sticky='ew')
     b24.grid(row=7, column=10, sticky='ew')
 
-
     b7.grid(row=8, column=0 , sticky='ew')
     b8.grid(row=8, column=1, sticky='ew')
     b9.grid(row=8, column=2, sticky='ew')
@@ -1168,4 +1166,4 @@ def create_buttons():
 
     return [b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27]
 
-root.mainloop()
+root.mainloop() 
