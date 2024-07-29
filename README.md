@@ -39,4 +39,4 @@ To run these games, you need to have Python installed on your system. You can do
 
 ## Contact
 
-For any questions or feedback, please contact me at noorfatimaafzal@gmail.com
+For any questions or feedback, please contact me at noorfatimaafzalbutt@gmail.com
